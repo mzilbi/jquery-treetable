@@ -155,7 +155,12 @@
         });
       }
 
-      this.indenter[0].style.paddingLeft = "" + (this.level() * settings.indent) + "px";
+      if (window.getComputedStyle(this.indenter[0], null).getPropertyValue('direction') === 'ltr') {
+      	this.indenter[0].style.paddingLeft = "" + (this.level() * settings.indent) + "px";
+      }
+      else {
+      	this.indenter[0].style.paddingRight = "" + (this.level() * settings.indent) + "px";
+      }
 
       return this;
     };
